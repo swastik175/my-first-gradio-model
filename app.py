@@ -11,4 +11,4 @@ with gr.Blocks() as demo:
     textbox = gr.Textbox(placeholder = "Enter text block to summarize", lines=4)
     gr.Interface(fn=predict, inputs= textbox, outputs= "text")
 
-demo.launch()
+  demo.launch(server_name="0.0.0.0", server_port=int(os.environ.get("PORT", 7860)))
