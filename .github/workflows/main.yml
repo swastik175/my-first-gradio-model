@@ -2,8 +2,6 @@ name: Sync to hugging face
 on:
   push:
     branches: [main]
-
-  # to run this workflow manually from the Actions Tab
   workflow_dispatch:
 
 jobs:
@@ -19,5 +17,8 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF }}
         run: |
-          git remote add space https://swastik1717:${HF_TOKEN}@huggingface.co/spaces/swastik1717/my-first-space
-          git push --force space main
+          # 1. Cleanly add the standard HTTPS remote without exposing credentials
+          git remote add space https://huggingface.co/spaces/swastik1717/my-first-space
+          
+          # 2. Inject the Write Token securely using a Git config extra header
+          git -c http.extraheader="Authorization: Bearer $HF_TOKEN" push --force space main
