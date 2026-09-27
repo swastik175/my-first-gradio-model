@@ -2,8 +2,6 @@ name: Sync to hugging face
 on:
   push:
     branches: [main]
-
-  # to run this workflow manually from the Actions Tab
   workflow_dispatch:
 
 jobs:
@@ -14,12 +12,8 @@ jobs:
         with:
           fetch-depth: 0
           
-      - name: Add remote
-        env:
-          HF: ${{ secrets.HF }}
-        run: git remote add space https://swastik1717:$HF@huggingface.co/spaces/swastik1717/my-first-space
-        
       - name: Push to Hub
-        env:
-          HF: ${{ secrets.HF }}
-        run: git push --force space main
+        uses: naterush/huggingface-spaces-auth-action@v1
+        with:
+          token: ${{ secrets.HF }}
+          space_id: swastik1717/my-first-space
