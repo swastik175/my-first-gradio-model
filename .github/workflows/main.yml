@@ -26,7 +26,7 @@ jobs:
           echo "https://swastik1717:${HF_TOKEN}@huggingface.co" > ~/.git-credentials
           
           # 3. Add the clean remote target
-          git remote add space https://huggingface.co
+          git remote add space https://huggingface.co/spaces/swastik1717/my-first-space
           
           # 4. Safely push without prompt blocks
           git push --force space main
