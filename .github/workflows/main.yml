@@ -17,5 +17,5 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HUGGINGFACE }}
         run: |
-          git remote set-url origin https://swastik1717:HF_TOKEN@huggingface.co/spaces/swastik1717/my-first-space
+          git remote set-url origin https://swastik1717:${HF_TOKEN}@huggingface.co/spaces/swastik1717/my-first-space
           git push --force origin main
