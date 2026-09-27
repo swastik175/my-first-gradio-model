@@ -13,11 +13,11 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          lfs: true # Automatically pulls LFS files if you have large model files
+          lfs: true
 
       - name: Push to Hub
         env:
           HF_TOKEN: ${{ secrets.HF }}
         run: |
-          git remote add space https://swastik1717:$HF_TOKEN@huggingface.co/spaces/swastik1717/my-first-space
+          git remote add space https://swastik1717:${HF_TOKEN}@huggingface.co/spaces/swastik1717/my-first-space
           git push --force space main
