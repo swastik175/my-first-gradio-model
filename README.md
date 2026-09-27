@@ -2,9 +2,9 @@
 title: Demo
 emoji: 🤖
 colorFrom: purple
-colorTo: orange
+colorTo: pink
 sdk: gradio
-sdk_version: 3.0.6
+sdk_version: 6.28.0
 python_version: 3.11.16
 app_file: app.py
 pinned: false
